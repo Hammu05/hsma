@@ -1,0 +1,131 @@
+/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+    background-color: #f4f7fc;
+    color: #333;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Main Container */
+#editProjContainer {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 35%;
+}
+
+#editProjContainer h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #deae56;
+    padding-bottom: 10px;
+}
+
+/* Flash Messages */
+p {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+p.error {
+    background-color: #ffcccc;
+    color: #a33;
+    border: 1px solid #a33;
+}
+
+p.success {
+    background-color: #ccffcc;
+    color: #3a3;
+    border: 1px solid #3a3;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    border-color: #deae56;
+    outline: none;
+    box-shadow: 0 0 5px rgba(222, 174, 86, 0.5);
+}
+
+form textarea {
+    resize: none;
+    height: 120px;
+}
+
+form button {
+    background-color: #e6b451;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #b68a30;
+}
+
+form button[type="button"] {
+    background-color: #b68a30;
+}
+
+form button[type="button"]:hover {
+    background-color: #e6b451;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #editProjContainer {
+        padding: 20px;
+    }
+
+    form {
+        gap: 15px;
+    }
+}

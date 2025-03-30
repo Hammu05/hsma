@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #17237b;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+
+    --first-color: hsl(82, 60%, 28%);
+    --title-color: hsl(0, 0%, 15%);
+    --text-color: hsl(0, 0%, 35%);
+    --body-color: hsl(0, 0%, 95%);
+    --container-color: hsl(0, 0%, 100%);
+
+    --body-font: "Poppins", sans-serif;
+    --h2-font-size: 1.25rem;
+    --small-font-size: .813rem;
+}
+
+body{
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: url('bg.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+@media screen and (min-width: 1120px) {
+    :root{
+        --h2-font-size: 1.5rem;
+        --small-font-size: .875rem;
+    }
+}
+
+/* ===== Sidebar ===== */
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    padding: 10px 14px;
+    z-index: 100;
+    background: white;
+    z-index: 1010; /* Sidebar should stay above the modal background */
+}
+
+/* ===== Reusable CSS ===== */
+
+.sidebar .image{
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar li{
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar li .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    font-size: 20px;
+}
+/* =================================================================================== */
+.sidebar li .icon{
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+.sidebar li .text{
+    color: var(--text-color);
+    transition: var(--tran-02);
+}
+
+.tablinks {
+    display: flex;
+    align-items: center;
+    color: var(--text-color);
+    background: transparent; /* Background is transparent */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    padding: 10px 1px; /* Add padding */
+    font-size: 17px; /* Font size */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: background var(--tran-02), color var(--tran-02); /* Add transition */
+    width: 250px;
+    height: 50px;
+    border-radius: 8px;
+    padding-left: 10%;
+}
+
+
+.tablinks:hover {
+    background: #e6b451; /* Change background on hover */
+    color: var(--sidebar-color); /* Change text color on hover */
+}
+
+.tablinks:hover .icon{
+    color: var(--sidebar-color); /* Change text color on hover */
+}
+/* =================================================================================== */
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar .image-text img{
+    width: 45px;
+    border-radius: 6px;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+
+header .image-text .header-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text .name{
+    font-weight: 600;
+}
+
+.header-text .profession{
+    margin-top: -2px;
+}
+
+.sidebar .menu{
+    margin-top: -15px;
+}
+
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--tran-04);
+}
+
+.sidebar li a:hover{
+    background: #e6b451;
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 50px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ===== MAIN BODY CSS ===== */
+
+.home{
+    position: relative;
+    height: 100vh;
+    left: 250px;
+    width: calc(100% - 1000px); 
+}
+
+.home .text{
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+
+}
+
+.tab-content {
+    background-color: white; /* White background for the container */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Spacing inside the container */
+    margin: 20px; /* Spacing outside the container */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 95%; /* Maximum width of the container */
+    height: 90%;
+    margin-top: 3%;
+    margin-left: 3%; /* Center the container horizontally */
+    margin-right: auto; /* Center the container horizontally */
+    
+    opacity: 0;
+    animation: dashboard 0.5s linear forwards;
+    transform: translateY(-30px);
+}
+
+@keyframes dashboard {
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+hr {
+    border: none; /* Remove default border */
+    height: 1px;  /* Set the thickness */
+    background-color: #ccc; /* Set the color */
+    margin: 20px 0; /* Add spacing around the divider */
+}
+
+.bottom-content .nav-link{
+    margin-top: -100px;
+}
+
+.logout-icon {
+    width: 20px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Space between image and text */
+    margin-left: 10%;
+    vertical-align: middle; /* Align the image with text */
+}
+
+.logout-icon-hover {
+    display: none; /* Hide hover icon by default */
+    width: 20px; /* Match the width of the original icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 8px; /* Space between image and text */
+    margin-left: 10%;
+    vertical-align: middle; /* Align the image with text */
+}
+
+.logout-link:hover .logout-icon {
+    display: none; /* Hide the default icon on hover */
+}
+
+.logout-link:hover .logout-icon-hover {
+    display: inline; /* Show the hover icon on hover */
+}
+
+/* ============================== EDIT HERE */
+
+#dashSeparate{
+    margin-bottom: 2.5%;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.container{
+    display: grid;
+    place-items: center;
+    margin-inline: 1.5rem;
+    padding-block: 5rem;
+    margin-top: -14%;
+}
+
+/* ==================================================== EDIT PROFILE MODAL  */
+/* Edit Profile Link Styles */
+.edit-profile-link {
+  color: #e6b451; /* Blue color for the link */
+  text-decoration: none; /* Removes underline */
+  font-size: 16px; /* Adjust the font size */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+  margin-top: -2%;
+}
+
+.text.header-text{
+  margin-top: 5%;
+}
+
+.edit-profile-link:hover {
+  color: #b5882d; /* Darker blue color on hover */
+  text-decoration: underline; /* Adds underline on hover */
+}
+
+.modal.editProf {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Black with transparency */
+    padding-top: 60px;
+  }
+  
+  label[for="firstName"],
+  label[for="email"],
+  label[for="phone"],
+  label[for="lastName"],
+  label[for="password"],
+  label[for="confirmPassword"] {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+  }
+
+  /* Modal content */
+  .modal-content.editProf {
+    background-color: #fff;
+    margin-left: 35%;
+    margin-top: 5%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%; /* Adjust this to your preferred width */
+    max-width: 800px; /* Max width if necessary */
+    position: relative;
+  }
+  
+  /* Close button */
+  .close.editProf {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close.editProf:hover,
+  .close.editProf:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Form Group */
+  .form-group.editProf {
+    margin-bottom: 15px;
+  }
+  
+  /* Form input fields */
+  form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Container for two columns */
+  .form-container.editProf {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Each column */
+  .form-column.editProf {
+    width: 48%; /* Adjust this to control column width */
+  }
+  
+  /* Save changes button */
+  .save-changes-btn.editProf {
+    background-color: #deae56;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .save-changes-btn.editProf:hover {
+    background-color: #a4792a;
+  }
+
+  .password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-container input {
+    padding-right: 50px; /* Space for the button */
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #e6b451;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 8px;
+    margin-top: 10%;
+    margin-left: 31%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add-manager-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-manager-btn:hover {
+    background-color: #45a049;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-column {
+    width: 48%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button.save-changes-btn {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.save-changes-btn:hover {
+    background-color: #005f73;
+}
+
+#addManagerButton {
+    margin-top: 9%;
+    margin-left: -80%;
+}
